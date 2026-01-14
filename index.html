@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scientific Calculator — Made with ❤️ by 𝐒ᴀᴍꜱᴏɴ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <div class="calculator shell" role="application" aria-label="Scientific calculator">
+      <div class="top-strip">
+        <div class="brand">SCIENTIFIC</div>
+        <div class="status">
+          <span id="memoryIndicator" class="mem">M: —</span>
+          <button id="angleToggle" class="mode-btn" title="Toggle angle mode">RAD</button>
+        </div>
+      </div>
+
+      <div class="display-wrap">
+        <div id="subdisplay" class="subdisplay" aria-hidden="true"></div>
+        <input id="display" class="display" type="text" value="0" readonly aria-label="Calculator display">
+      </div>
+
+      <!-- Casio-like grid -->
+      <div class="keys casio-grid" role="group" aria-label="Calculator keys">
+        <!-- Row 1: small control buttons -->
+        <button class="btn small fn top" data-action="on">ON</button>
+        <button class="btn small fn top" data-action="home">HOME</button>
+        <button class="btn small fn top" data-action="settings">SETTINGS</button>
+        <div></div>
+        <div></div>
+
+        <!-- Row 2: nav-like and shift/var row -->
+        <button class="btn small fn" data-action="shift">SHIFT</button>
+        <button class="btn small fn" data-action="variable">VAR</button>
+        <button class="btn small fn" data-action="function">F(x)</button>
+        <button class="btn small fn" data-action="catalog">CATALOG</button>
+        <button class="btn small fn" data-action="tools">TOOLS</button>
+
+        <!-- Row 3: functions row -->
+        <button class="btn fn" data-value="Ans">Ans</button>
+        <button class="btn fn" data-value="sin(">sin</button>
+        <button class="btn fn" data-value="cos(">cos</button>
+        <button class="btn fn" data-value="tan(">tan</button>
+        <button class="btn op" data-value="/" title="Divide">÷</button>
+
+        <!-- Row 4 -->
+        <button class="btn fn" data-value="asin(">asin</button>
+        <button class="btn fn" data-value="acos(">acos</button>
+        <button class="btn fn" data-value="atan(">atan</button>
+        <button class="btn fn" data-value="sqrt(">√</button>
+        <button class="btn op" data-value="*" title="Multiply">×</button>
+
+        <!-- Row 5 -->
+        <button class="btn fn" data-value="ln(">ln</button>
+        <button class="btn fn" data-value="log(">log</button>
+        <button class="btn fn" data-value="exp(">exp</button>
+        <button class="btn fn" data-action="percent">%</button>
+        <button class="btn op" data-value="-" title="Subtract">−</button>
+
+        <!-- Row 6: numeric row 7-9 -->
+        <button class="btn num" data-value="7">7</button>
+        <button class="btn num" data-value="8">8</button>
+        <button class="btn num" data-value="9">9</button>
+        <button class="btn fn" data-action="backspace">⌫</button>
+        <button class="btn fn" data-action="clear">AC</button>
+
+        <!-- Row 7: numeric 4-6 -->
+        <button class="btn num" data-value="4">4</button>
+        <button class="btn num" data-value="5">5</button>
+        <button class="btn num" data-value="6">6</button>
+        <button class="btn fn" data-action="pow2">x²</button>
+        <button class="btn fn" data-action="pow">xʸ</button>
+
+        <!-- Row 8: numeric 1-3 -->
+        <button class="btn num" data-value="1">1</button>
+        <button class="btn num" data-value="2">2</button>
+        <button class="btn num" data-value="3">3</button>
+        <button class="btn fn" data-action="factorial">n!</button>
+        <button class="btn fn" data-action="pi">π</button>
+
+        <!-- Row 9: zero, dot, extra, plus, EXE -->
+        <button class="btn num zero wide" data-value="0">0</button>
+        <button class="btn num" data-value=".">.</button>
+        <button class="btn mem" data-action="mc">MC</button>
+        <button class="btn op" data-value="+" title="Add">+</button>
+        <button class="btn equal exe" data-action="equals">EXE</button>
+
+        <!-- Row 10: memory row (placed under zero area for balance) -->
+        <button class="btn mem" data-action="mr">MR</button>
+        <button class="btn mem" data-action="mplus">M+</button>
+        <button class="btn mem" data-action="mminus">M−</button>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <footer class="footer">Made with ❤️ by 𝐒ᴀᴍꜱᴏɴ</footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

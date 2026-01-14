@@ -1,0 +1,204 @@
+:root{
+  --bg: #dfe7ef;
+  --panel: #2b2f33;
+  --display-bg: #0b1020;
+  --display-fg: #e6f1ff;
+  --btn-light: #f2f4f6;
+  --btn-fn: #ff9f1c;
+  --btn-op: #6b7280;
+  --btn-eq: #0b74ff;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #e9eef6 0%, var(--bg) 100%);
+  padding: 32px;
+  color: #111;
+}
+
+/* Page wrapper */
+.page{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+/* Calculator shell */
+.calculator.shell{
+  width: 420px;
+  border-radius: 18px;
+  padding: 18px;
+  background: linear-gradient(180deg, #3a3e42 0%, var(--panel) 100%);
+  box-shadow:
+    0 18px 40px rgba(11,15,20,0.45),
+    inset 0 6px 20px rgba(255,255,255,0.03);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Top strip */
+.top-strip{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+.brand{
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  font-size: 0.82rem;
+  color: #dbe7ff;
+}
+.status{ display:flex; gap:10px; align-items:center; }
+
+.mode-btn{
+  font-weight:700;
+  background: linear-gradient(180deg,#1b1f22,#222428);
+  color: #dbe7ff;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.45);
+}
+
+/* Display area */
+.display-wrap{
+  background: linear-gradient(180deg,#090b0f 0%, #0f1622 100%);
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: inset 0 -6px 20px rgba(0,0,0,0.6);
+  margin-bottom: 14px;
+}
+.display{
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--display-fg);
+  font-size: 2.2rem;
+  text-align: right;
+  font-weight: 700;
+  font-family: "Roboto Mono", "Courier New", monospace;
+  outline: none;
+  padding: 4px 0;
+}
+.subdisplay{
+  color: #9fb0d9;
+  text-align: right;
+  font-size: 0.78rem;
+  margin-bottom: 2px;
+  min-height: 18px;
+}
+
+/* Casio-like grid */
+.keys.casio-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 56px;
+  gap: 10px;
+}
+
+/* Button base style — rectangular with rounded corners */
+.btn{
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(180deg,#f6f7f8,#e6e9ec);
+  color: #111;
+  font-weight: 700;
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;            /* soft curved corners */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform .06s ease, box-shadow .06s ease;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.45), inset 0 1px rgba(255,255,255,0.02);
+  padding: 0 8px;
+  text-align: center;
+}
+
+/* Small top buttons */
+.btn.small{
+  font-size: 0.86rem;
+  border-radius: 8px;
+  padding: 0 6px;
+}
+
+/* Wide zero spans two columns and is rectangular with curved edges */
+.btn.zero.wide{
+  grid-column: 1 / span 2;
+  border-radius: 12px;
+  justify-content: flex-start;
+  padding-left: 16px;
+}
+
+/* Function buttons (orange) */
+.btn.fn{
+  background: linear-gradient(180deg,#ffd8a4,#ffb86b);
+  box-shadow: 0 6px 0 rgba(128,66,3,0.35), inset 0 1px rgba(255,255,255,0.35);
+  color: #2b1a00;
+}
+
+/* Memory buttons (green) */
+.btn.mem{
+  background: linear-gradient(180deg,#c8f7dc,#91e0b8);
+  box-shadow: 0 6px 0 rgba(4,71,44,0.25), inset 0 1px rgba(255,255,255,0.35);
+  color: #043a1f;
+}
+
+/* Operator buttons (muted) */
+.btn.op{
+  background: linear-gradient(180deg,#f0f2f4,#d7dbe0);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.35);
+  color: #1f2937;
+}
+
+/* Equal/EXE button: rectangular and slightly larger radius */
+.btn.equal, .btn.exe{
+  background: linear-gradient(180deg,#2e7ef8,#0b60ff);
+  color: #fff;
+  box-shadow: 0 8px 0 rgba(4,45,120,0.45);
+  border-radius: 12px;
+}
+
+/* Make EXE distinct and placed at bottom-right */
+.btn.exe{
+  grid-row: 9 / 10;
+  grid-column: 5 / 6;
+}
+
+/* Press effect */
+.btn:active{
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.45) inset;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  color:#374151;
+  font-size:0.95rem;
+  opacity:0.95;
+  font-weight:600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 460px){
+  .calculator.shell { width: 360px; padding: 14px; }
+  .display { font-size: 1.8rem; }
+  .keys.casio-grid { grid-auto-rows: 48px; gap: 8px; }
+  .btn.small { font-size: 0.82rem; }
+  .btn { font-size: 0.95rem; }
+  .btn.zero.wide { padding-left: 12px; }
+}
